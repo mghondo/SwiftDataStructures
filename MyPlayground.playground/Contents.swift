@@ -3,8 +3,10 @@
 var names = ["Darclee", "Delmar", "Beaufort", "Pete", "GigMobile", "Jon", "Platform", "Eats"]
 
 func printNames(names : [String]) {
-    for name in names {
-        print(name)
+    for _ in names {
+        for name in names {
+            print(name)
+        }
     }
 }
 
