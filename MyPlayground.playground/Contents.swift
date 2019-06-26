@@ -15,7 +15,16 @@ struct LinkedList<Value> {
             tail = head
             
         }
-        
+    }
+    
+    mutating func append(_ value :Value) {
+        guard !isEmpty else {
+            push(value)
+            return
+        }
+        let node = Node(value: value)
+        tail!.next = node
+        tail = node
     }
     
     init() { }
@@ -56,5 +65,9 @@ list.push(2)
 list.push(3)
 list.push(22)
 list.push(54)
+
+list.append(99)
+list.append(56)
+list.append(45)
 
 print(list)
