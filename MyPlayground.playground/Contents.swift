@@ -17,6 +17,20 @@ struct LinkedList<Value> {
         }
     }
     
+    func node(at index: Int) -> Node<Value>? {
+        var currentIndex = 0
+        var currentNode = head
+        while(currentNode != nil && currentIndex < index) {
+            currentNode = currentNode?.next
+            currentIndex += 1
+        }
+        return currentNode
+    }
+    
+    func insert(_ value :Value, after node :Node<Value>) {
+        node.next = Node(value: value, next: node.next)
+    }
+    
     mutating func append(_ value :Value) {
         guard !isEmpty else {
             push(value)
@@ -71,3 +85,11 @@ list.append(56)
 list.append(45)
 
 print(list)
+
+let middleNode = list.node(at: 5)!
+
+list.insert(999, after: middleNode)
+
+print(list)
+
+
